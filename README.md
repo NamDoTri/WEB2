@@ -1,3 +1,3 @@
 # Deployed project
 
-[Hera link](https://i444363.hera.fhict.nl/)
+[Hera link](https://i444363.hera.fhict.nl/web2)
