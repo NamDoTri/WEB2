@@ -1,5 +1,5 @@
-export class Task{
-    id: number;
-    des: string;
-    completed: boolean;
+export default class Task {
+  id: number;
+  name: string;
+  description: string;
 }

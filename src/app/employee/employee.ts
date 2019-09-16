@@ -1,5 +1,7 @@
-export class Employee{
-    id: number;
-    name: string;
-    dpt: string
+export default class Employee {
+  id: number;
+  name: string;
+  lastName: string;
+  age: number;
+  job: string;
 }
