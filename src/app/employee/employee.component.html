@@ -10,13 +10,13 @@
       <th>Age</th>
       <th>Job</th>
     </tr>
-    <tr *ngFor="let person of employees" >
+    <tr *ngFor="let person of employees; let idx = index" >
       <td>{{ person.name }}</td>
       <td>{{ person.lastName }}</td>
       <td>{{ person.age }}</td>
       <td>{{ person.job }}</td>
-      <td><button (click)="currentlyUpdated=person.id">Update</button></td>
-      <td><button (click)="removeEmployee(person.id)">Delete</button></td>
+      <td><button (click)="currentlyUpdated=idx">Update</button></td>
+      <td><button (click)="removeEmployee(idx)">Delete</button></td>
     </tr>
   </table>
 </div>

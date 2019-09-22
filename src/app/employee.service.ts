@@ -14,20 +14,23 @@ export class EmployeeService {
     return <Employee[]> this.employeeArr;
   }
   addEmployee(employee: Employee){
+    console.log(this.employeeArr);
     let newEmployee = employee;
-    newEmployee.id = employeeArr[employeeArr.length-1].id + 1;
-    employeeArr.push(newEmployee)
-    console.log(`Added employee ${employee.name} ${employee.lastName} with id: ${employee.id}. \nemployeeArr.length: ${employeeArr.length}`)
+    //newEmployee.id = employeeArr[employeeArr.length-1].id + 1;
+    this.employeeArr.push(newEmployee);
+    console.log(this.employeeArr);
   }
-  removeEmployee(id){
-    console.log(`Removed employee with id: ${id}. \nemmployeeArr.length: ${employeeArr.length}`)
-    this.employeeArr = this.employeeArr.filter(e => e.id != id)
+  removeEmployee(index){
+    console.log(this.employeeArr);
+    this.employeeArr.splice(index, 1);
+    console.log(this.employeeArr);
   }
-  updateEmployee(id, modifiedEmployee){
+  updateEmployee(index, modifiedEmployee){
     //this is a temporary solution
-    let currentEmployee = employeeArr.find(e => e.id == id);
-    let index = employeeArr.indexOf(currentEmployee);
-    employeeArr[index] = modifiedEmployee;
-    console.log(`Modified employee id: ${id} with ${modifiedEmployee.name}`)
+    console.log(this.employeeArr);
+    this.employeeArr[index] = modifiedEmployee;
+    //let currentEmployee = employeeArr.find(e => e.id == id);
+    //let index = employeeArr.indexOf(currentEmployee);
+    console.log(this.employeeArr);
   }
 }
