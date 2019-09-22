@@ -7,12 +7,13 @@ import {ReactiveFormsModule} from '@angular/forms';
 import { AppComponent } from './app.component';
 import { TaskComponent } from './task/task.component';
 import { EmployeeComponent } from './employee/employee.component';
-import {DepartmentComponent} from './department/department.component'
+import { DepartmentComponent } from './department/department.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { LayoutComponent } from './layout/layout.component';
 import { HomeComponent } from './home/home.component';
 import { EmployeeFormComponent } from './employee-form/employee-form.component';
+import { TaskFormComponent } from './task-form/task-form.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { EmployeeFormComponent } from './employee-form/employee-form.component';
     DepartmentComponent,
     LayoutComponent,
     HomeComponent,
-    EmployeeFormComponent
+    EmployeeFormComponent,
+    TaskFormComponent,
   ],
   imports: [
     BrowserModule,
