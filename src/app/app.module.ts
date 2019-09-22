@@ -11,6 +11,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { LayoutComponent } from './layout/layout.component';
 import { HomeComponent } from './home/home.component';
+import { DepartmentFormComponent } from './department-form/department-form.component';
 import { TaskFormComponent } from './task-form/task-form.component';
 
 @NgModule({
@@ -21,7 +22,9 @@ import { TaskFormComponent } from './task-form/task-form.component';
     DepartmentComponent,
     LayoutComponent,
     HomeComponent,
-    TaskFormComponent
+    TaskFormComponent,
+    DepartmentFormComponent,
+    TaskFormComponent,
   ],
   imports: [
     BrowserModule,

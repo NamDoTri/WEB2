@@ -1,0 +1,11 @@
+<form [formGroup]="departmentForm" (ngSubmit)="onSubmit()">
+    <label>
+        Name:
+        <input type="text" formControlName="name">
+    </label>
+    <label>
+        Employees:
+        <input type="number" formControlName="employees" >
+    </label>
+    <button type="submit" [disabled]="!departmentForm.valid">Save</button>
+</form>

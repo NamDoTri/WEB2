@@ -1,6 +1,6 @@
-import {Department} from './department';
+import Department from './department';
 
-export let departments = <Department[]>[
+export const departmentArr = <Department[]>[
     {id: 1, name: "Sales", employees: 4},
     {id: 2, name: "Technology", employees: 4},
     {id: 3, name: "Human Resource", employees: 4}
