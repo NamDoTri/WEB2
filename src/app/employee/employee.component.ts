@@ -9,7 +9,8 @@ import {EmployeeService} from '../employee.service';
 })
 export class EmployeeComponent implements OnInit {
   employees: Employee[] = this.employeeService.getEmployees();
-  currentlyUpdated: number;
+  currentlyUpdated: number = 0;
+  modified: boolean = false;
 
   constructor(private employeeService: EmployeeService) { }
 
@@ -26,6 +27,7 @@ export class EmployeeComponent implements OnInit {
   updateEmployee(id, modifiedEmployee: Employee){
     this.employeeService.updateEmployee(id, modifiedEmployee);
     this.currentlyUpdated = 0;
-    this.employees = this.employeeService.getEmployees()
+    this.employees = this.employeeService.getEmployees();
+    this.modified = false;
   }
 }

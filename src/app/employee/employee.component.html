@@ -1,7 +1,7 @@
 <h1>Employees</h1>
 
 <!--Main list-->
-<div [hidden]="currentlyUpdated">
+<div [hidden]="modified">
   <h2>This is the list of employees</h2>
   <table>
     <tr>
@@ -15,20 +15,20 @@
       <td>{{ person.lastName }}</td>
       <td>{{ person.age }}</td>
       <td>{{ person.job }}</td>
-      <td><button (click)="currentlyUpdated=idx">Update</button></td>
+      <td><button (click)="currentlyUpdated=idx; modified = true">Update</button></td>
       <td><button (click)="removeEmployee(idx)">Delete</button></td>
     </tr>
   </table>
 </div>
 
 <!--Add a new employee-->
-<div [hidden]="currentlyUpdated">
+<div [hidden]="modified">
   <h4>Add new employee:</h4>
   <app-employee-form (newEmployee)="addEmployee($event)" ></app-employee-form>
 </div>
 
 <!--Update employee information-->
-<div [hidden]="!currentlyUpdated">
+<div [hidden]="!modified">
   <!-- TODO: pipe data to the form -->
   <app-employee-form (newEmployee)="updateEmployee(currentlyUpdated, $event)"></app-employee-form>
 </div>
