@@ -15,7 +15,7 @@ export class EmployeeService {
   }
   addEmployee(employee: Employee){
     let newEmployee = employee;
-    newEmployee.id = employeeArr[employeeArr.length].id++;
+    newEmployee.id = employeeArr[employeeArr.length-1].id + 1;
     employeeArr.push(newEmployee)
   }
   removeEmployee(id){
