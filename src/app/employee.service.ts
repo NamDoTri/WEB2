@@ -9,8 +9,12 @@ export class EmployeeService {
   employeeArr: Employee[] = employeeArr;
 
   constructor() { }
-  
+
   getEmployees(){
     return <Employee[]> this.employeeArr;
+  }
+  addEmployee(employee: Employee){
+    //add employee
+    employeeArr.push(employee)
   }
 }
