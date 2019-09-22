@@ -9,6 +9,7 @@ import {EmployeeService} from '../employee.service';
 })
 export class EmployeeComponent implements OnInit {
   employees: Employee[] = this.employeeService.getEmployees();
+  currentlyUpdated: number;
 
   constructor(private employeeService: EmployeeService) { }
 
@@ -18,8 +19,12 @@ export class EmployeeComponent implements OnInit {
     this.employeeService.addEmployee(newEmployee)
   }
   removeEmployee(id){
-    console.log(`Request to delete employee with id: ${id} received`)
     this.employeeService.removeEmployee(id);
+    this.employees = this.employeeService.getEmployees()
+  }
+  updateEmployee(id, modifiedEmployee: Employee){
+    this.employeeService.updateEmployee(id, modifiedEmployee);
+    this.currentlyUpdated = 0;
     this.employees = this.employeeService.getEmployees()
   }
 }

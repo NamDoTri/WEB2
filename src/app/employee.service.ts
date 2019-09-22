@@ -21,4 +21,10 @@ export class EmployeeService {
   removeEmployee(id){
     this.employeeArr = this.employeeArr.filter(e => e.id != id)
   }
+  updateEmployee(id, modifiedEmployee){
+    //this is a temporary solution
+    let currentEmployee = employeeArr.find(e => e.id == id);
+    let index = employeeArr.indexOf(currentEmployee);
+    employeeArr[index] = modifiedEmployee;
+  }
 }
