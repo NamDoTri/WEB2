@@ -17,6 +17,7 @@ export class EmployeeComponent implements OnInit {
   }
   addEmployee(newEmployee){
     this.employeeService.addEmployee(newEmployee)
+    this.employees = this.employeeService.getEmployees()
   }
   removeEmployee(id){
     this.employeeService.removeEmployee(id);
