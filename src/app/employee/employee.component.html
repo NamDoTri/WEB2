@@ -14,4 +14,4 @@
     <td>{{ person.job }}</td>
   </tr>
 </table>
-<app-employee-form></app-employee-form>
+<app-employee-form (newEmployee)="addEmployee($event)"></app-employee-form>

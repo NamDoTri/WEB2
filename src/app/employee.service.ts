@@ -14,7 +14,6 @@ export class EmployeeService {
     return <Employee[]> this.employeeArr;
   }
   addEmployee(employee: Employee){
-    //add employee
     employeeArr.push(employee)
   }
 }
