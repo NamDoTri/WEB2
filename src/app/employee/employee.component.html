@@ -12,6 +12,8 @@
     <td>{{ person.lastName }}</td>
     <td>{{ person.age }}</td>
     <td>{{ person.job }}</td>
+    <td><button>Update</button></td>
+    <td><button (click)="removeEmployee(person.id)">Delete</button></td>
   </tr>
 </table>
 <app-employee-form (newEmployee)="addEmployee($event)"></app-employee-form>
