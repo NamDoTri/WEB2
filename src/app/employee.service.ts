@@ -14,23 +14,21 @@ export class EmployeeService {
     return <Employee[]> this.employeeArr;
   }
   addEmployee(employee: Employee){
-    console.log(this.employeeArr);
     let newEmployee = employee;
-    //newEmployee.id = employeeArr[employeeArr.length-1].id + 1;
+    newEmployee.id = this.employeeArr.length == 0 ? 1 : this.employeeArr[this.employeeArr.length-1].id + 1;
     this.employeeArr.push(newEmployee);
-    console.log(this.employeeArr);
+    console.log(this.employeeArr)
   }
-  removeEmployee(index){
-    console.log(this.employeeArr);
-    this.employeeArr.splice(index, 1);
-    console.log(this.employeeArr);
+  removeEmployee(id){
+    this.employeeArr = this.employeeArr.filter(e => e.id != id)
+    console.log(this.employeeArr)
   }
-  updateEmployee(index, modifiedEmployee){
+  updateEmployee(id, modifiedEmployee){
     //this is a temporary solution
-    console.log(this.employeeArr);
+    let currentEmployee = this.employeeArr.find(e => e.id == id);
+    let index = this.employeeArr.indexOf(currentEmployee);
+    modifiedEmployee.id = id;
     this.employeeArr[index] = modifiedEmployee;
-    //let currentEmployee = employeeArr.find(e => e.id == id);
-    //let index = employeeArr.indexOf(currentEmployee);
-    console.log(this.employeeArr);
+    console.log(this.employeeArr)
   }
 }
