@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { Validators } from '@angular/forms';
 import Task from '../task/task';
 
 @Component({
@@ -10,9 +11,9 @@ import Task from '../task/task';
 export class TaskFormComponent {
   @Output() newTask = new EventEmitter<Task>();
   TaskForm = new FormGroup({
-    id: new FormControl(''),
-    name: new FormControl(''),
-    description: new FormControl('')
+    id: new FormControl('', [ Validators.minLength(1), Validators.required]),
+    name: new FormControl('', [ Validators.minLength(1), Validators.required]),
+    description: new FormControl('', [ Validators.minLength(5), Validators.required])
   });
 
   onSubmit() {
