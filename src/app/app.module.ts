@@ -13,6 +13,7 @@ import { MaterialModule } from './material/material.module';
 import { LayoutComponent } from './layout/layout.component';
 import { HomeComponent } from './home/home.component';
 import { EmployeeFormComponent } from './employee-form/employee-form.component';
+import { DepartmentFormComponent } from './department-form/department-form.component';
 import { TaskFormComponent } from './task-form/task-form.component';
 
 @NgModule({
@@ -24,6 +25,8 @@ import { TaskFormComponent } from './task-form/task-form.component';
     LayoutComponent,
     HomeComponent,
     EmployeeFormComponent,
+    TaskFormComponent,
+    DepartmentFormComponent,
     TaskFormComponent,
   ],
   imports: [

@@ -11,4 +11,4 @@
     Description
     <input type="text" formControlName="description">
   </label>
-  <button type="submit">Submit</button>
+  <button type="submit" [disabled]="!TaskForm.valid">Submit</button>

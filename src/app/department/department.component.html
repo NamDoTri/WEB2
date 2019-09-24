@@ -1,4 +1,27 @@
-<h4>Departments:</h4>   
-<ul *ngFor="let dpt of departments">
-    <li>{{dpt.name}}</li>
-</ul>
+<h1>Department</h1>
+
+<!--Main list-->
+<div [hidden]="modified">
+  <h2>This is the list of departments</h2>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Employees</th>
+    </tr>
+    <tr *ngFor="let dep of department; let idx = index" >
+      <td>{{ dep.name }}</td>
+      <td>{{ dep.employees }}</td>
+      <td><button (click)="currentlyUpdated=idx; modified = true">Update</button></td>
+      <td><button (click)="removeDepartment(idx)">Delete</button></td>
+    </tr>
+  </table>
+</div>
+
+<div [hidden]="modified">
+  <h4>Add new department:</h4>
+  <app-department-form (newDepartment)="addDepartment($event)" ></app-department-form>
+</div>
+
+<div [hidden]="!modified">
+  <app-department-form (newDepartment)="updateDepartment(currentlyUpdated, $event)"></app-department-form>
+</div>
