@@ -1,7 +1,19 @@
 <h1>Tasks</h1>
 <h2>This is my list of tasks for the day</h2>
 <ul>
-  <li *ngFor="let item of task">
-    {{ item.name }}: {{ item.description }}
+  <li *ngFor="let item of task; let idx = index" (click)="updateDisplayed(idx)" class="pointer">
+    {{ item.name }}
+    <div *ngIf="idx === displayed">
+      {{ item.description }}
+      <button (click)="modified = !modified; $event.stopPropagation()">{{ modified ? "Hide" : "Modify" }}</button>
+      <button (click)="deleteTask(idx); $event.stopPropagation()">Delete</button>
+      <div *ngIf="modified === true">
+        <app-task-form (newTask)="updateTask($event)" (click)="$event.stopPropagation()"></app-task-form>
+      </div>
+    </div>
   </li>
 </ul>
+<button (click)="create ? create = false : create = true">{{ create === true ? "Hide" : "New"}}</button>
+<div *ngIf="create">
+  <app-task-form (newTask)="newTask($event)"></app-task-form>
+</div>

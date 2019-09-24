@@ -1,0 +1,24 @@
+<form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+
+    <label>
+        First name:
+        <input type="text" formControlName="name">
+    </label>
+
+    <label>
+        Last name:
+        <input type="text" formControlName="lastName" >
+    </label>
+
+    <label>
+        Age:
+        <input type="number" formControlName="age" >
+    </label>
+
+    <label>
+        Job:
+        <input type="text" formControlName="job" >
+    </label>
+
+    <button type="submit" [disabled]="!employeeForm.valid">Save</button>
+</form>
