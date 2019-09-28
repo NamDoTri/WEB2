@@ -1,0 +1,30 @@
+<div [hidden]="modifying">
+  <h2>This is the list of employees</h2>
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+    </tr>
+    <tr *ngFor="let elem of employee" (click)='displayed=elem.id'>
+      <td>{{ elem.id }}</td>
+      <td>{{ elem.first_name }}</td>
+      <td>{{ elem.last_name }}</td>
+      <span *ngIf="displayed === elem.id">
+        <td>
+          <button (click)="displayed=elem.id; modifying = true">Update</button>
+          <button (click)="removeEmployee(displayed)">Delete</button>
+        </td>
+      </span>
+    </tr>
+  </table>
+</div>
+
+<div [hidden]="modifying">
+  <h4>Add new employee:</h4>
+  <app-employee-form (reload)="reload()" type='CREATE'></app-employee-form>
+</div>
+
+<div [hidden]="!modifying">
+  <app-employee-form (reload)="reload()" type='MODIFY' id='{{displayed}}'></app-employee-form>
+</div>
