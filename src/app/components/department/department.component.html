@@ -1,0 +1,30 @@
+<div [hidden]="modifying">
+  <h2>This is the list of departments</h2>
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Employees</th>
+    </tr>
+    <tr *ngFor="let dep of department" (click)='displayed=dep.id'>
+      <td>{{ dep.id }}</td>
+      <td>{{ dep.name }}</td>
+      <td>{{ dep.employees }}</td>
+      <span *ngIf="displayed === dep.id">
+        <td>
+          <button (click)="modifying=true">Update</button>
+          <button (click)="removeDepartment(displayed)">Delete</button>
+        </td>
+      </span>
+    </tr>
+  </table>
+</div>
+
+<div [hidden]="modifying">
+  <h4>Add new department:</h4>
+  <app-department-form (reload)="reload()" type='CREATE'></app-department-form>
+</div>
+
+<div [hidden]="!modifying">
+  <app-department-form (reload)="reload()" type='MODIFY' id='{{displayed}}'></app-department-form>
+</div>

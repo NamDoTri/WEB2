@@ -1,0 +1,30 @@
+<div [hidden]="modifying">
+    <h2>This is the list of tasks</h2>
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Due date</th>
+      </tr>
+      <tr *ngFor="let elem of task" (click)='displayed=elem.id'>
+        <td>{{ elem.id }}</td>
+        <td>{{ elem.name }}</td>
+        <td>{{ elem.due_date | date : dd-MM-YYYY }}</td>
+        <span *ngIf="displayed === elem.id">
+          <td>
+            <button (click)="modifying=true">Update</button>
+            <button (click)="removeTask(displayed)">Delete</button>
+          </td>
+        </span>
+      </tr>
+    </table>
+  </div>
+  
+  <div [hidden]="modifying">
+    <h4>Add new task:</h4>
+    <app-task-form (reload)="reload()" type='CREATE'></app-task-form>
+  </div>
+  
+  <div [hidden]="!modifying">
+    <app-task-form (reload)="reload()" type='MODIFY' id='{{displayed}}'></app-task-form>
+  </div>
