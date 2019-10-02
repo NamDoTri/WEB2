@@ -24,6 +24,9 @@ export class DepartmentComponent implements OnInit {
       .subscribe((res: Department[]) => this.department = res);
   }
 
+  getDepartmentInfo(id){
+    this.departmentService.getDepartmentInfo(id).subscribe( (res: Department) => console.log(res) )
+  }  
   removeDepartment(toRemove) {
     this.displayed = -1;
     this.departmentService.removeDepartment(toRemove)

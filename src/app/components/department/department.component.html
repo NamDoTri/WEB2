@@ -6,7 +6,7 @@
       <th>Name</th>
       <th>Employees</th>
     </tr>
-    <tr *ngFor="let dep of department" (click)='displayed=dep.id'>
+    <tr *ngFor="let dep of department" (click)='displayed=dep.id; getDepartmentInfo(dep.id)'>
       <td>{{ dep.id }}</td>
       <td>{{ dep.name }}</td>
       <td>{{ dep.employees }}</td>
