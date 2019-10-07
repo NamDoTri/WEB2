@@ -26,7 +26,6 @@ export class EmployeeFormComponent implements OnInit {
   });
   ngOnInit() {
     this.departmentService.getDepartment().subscribe( res => this.departments = res )
-    console.log(this.departments)
   }
   onSubmit(){
     if (this.type === 'CREATE') {

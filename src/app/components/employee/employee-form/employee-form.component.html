@@ -17,10 +17,11 @@
   </label>
   <label>
     Department ID:
-    <select name="" id="">
+    <select formControlName="department_id">
       <option value="Choose a department" disabled>Choose a department</option>
-      <option *ngFor="let dpt of departments">{{dpt.id}}</option>
+      <option *ngFor="let dpt of departments" value="{{dpt.id}}">{{dpt.id}}</option>
     </select>
   </label>
   <button type="submit" [disabled]="!employeeForm.valid">Save</button>
 </form>
+<!-- <div *ngIf="age.errors.min">Employee must be 18 years old or above</div> -->
