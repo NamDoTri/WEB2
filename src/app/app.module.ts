@@ -13,10 +13,12 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { TaskFormComponent } from './components/task/task-form/task-form.component';
 import { EmployeeFormComponent } from './components/employee/employee-form/employee-form.component';
 import { DepartmentFormComponent } from './components/department/department-form/department-form.component';
+import { EmployeeDetailComponent } from './employee-detail/employee-detail.component';
 
 const routing: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'department', component: DepartmentComponent },
+  { path: 'employee/employee-detail/:id', component: EmployeeDetailComponent},
   { path: 'employee', component: EmployeeComponent },
   { path: 'addEmployee', component: EmployeeFormComponent},
   { path: 'task', component: TaskComponent },
@@ -36,7 +38,8 @@ const routing: Routes = [
     DashboardComponent,
     TaskFormComponent,
     EmployeeFormComponent,
-    DepartmentFormComponent
+    DepartmentFormComponent,
+    EmployeeDetailComponent
   ],
   imports: [
     BrowserModule,
