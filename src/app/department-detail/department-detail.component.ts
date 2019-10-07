@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from "@angular/common";
 import { ActivatedRoute } from "@angular/router";
 import { DepartmentService } from "src/app/services/department.service";
 import { Department } from "src/app/models/department.model";
@@ -11,7 +12,8 @@ import { Department } from "src/app/models/department.model";
 export class DepartmentDetailComponent implements OnInit {
 
   constructor(private departmentService: DepartmentService,
-              private route: ActivatedRoute
+              private route: ActivatedRoute,
+              private location: Location,
               ){ }
   department: Department; 
 
@@ -21,4 +23,7 @@ export class DepartmentDetailComponent implements OnInit {
     .subscribe( (res: Department) => this.department = res );
   }
 
+  goBack(){
+    this.location.back()
+  }
 }
