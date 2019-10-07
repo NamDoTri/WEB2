@@ -12,7 +12,7 @@
       <td><a [routerLink]="['/employee-detail', elem.id]">{{ elem.first_name }}</a></td>
       <td>{{ elem.last_name }}</td>
        <td>
-        <a [routerLink]="['/employee']">Update</a>
+        <a [routerLink]="['/updateEmployee', elem.id]">Update</a>
         <button (click)="removeEmployee(elem.id)">Delete</button>
       </td>      
     </tr>

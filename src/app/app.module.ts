@@ -18,13 +18,17 @@ import { DepartmentDetailComponent } from './department-detail/department-detail
 
 const routing: Routes = [
   { path: 'dashboard', component: DashboardComponent },
-  { path: 'department-detail/:id', component: DepartmentDetailComponent},
+
   { path: 'department', component: DepartmentComponent },
+  { path: 'department-detail/:id', component: DepartmentDetailComponent},
   { path: 'addDepartment', component: DepartmentFormComponent},
   { path: 'updateDepartment/:id', component: DepartmentFormComponent},
-  { path: 'employee-detail/:id', component: EmployeeDetailComponent},
+
   { path: 'employee', component: EmployeeComponent },
+  { path: 'employee-detail/:id', component: EmployeeDetailComponent},
   { path: 'addEmployee', component: EmployeeFormComponent},
+  { path: 'updateEmployee/:id', component: EmployeeFormComponent},
+
   { path: 'task', component: TaskComponent },
   { path: '',
     redirectTo: '/dashboard',
