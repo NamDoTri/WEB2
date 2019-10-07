@@ -17,7 +17,10 @@
   </label>
   <label>
     Department ID:
-    <input type="number" formControlName="department_id">
+    <select name="" id="">
+      <option value="Choose a department" disabled>Choose a department</option>
+      <option *ngFor="let dpt of departments">{{dpt.id}}</option>
+    </select>
   </label>
   <button type="submit" [disabled]="!employeeForm.valid">Save</button>
 </form>
