@@ -13,7 +13,7 @@
       <td>{{ dep.employees }}</td>
       <td>
         <button (click)="modifying=true">Update</button>
-        <button (click)="removeDepartment(displayed)">Delete</button>
+        <button (click)="removeDepartment(dep.id)">Delete</button>
       </td>
     </tr>
   </table>

@@ -10,21 +10,16 @@ import { Department } from 'src/app/models/department.model';
 export class DepartmentComponent implements OnInit {
   constructor(private departmentService: DepartmentService) { }
   department: Department[] = [];
-  modifying: boolean = false;
-  displayed: number = -1;
 
   ngOnInit() {
     this.reload();
   }
 
   reload() {
-    this.modifying = false;
-    this.displayed = -1;
     this.departmentService.getDepartment()
       .subscribe((res: Department[]) => this.department = res);
   }
   removeDepartment(toRemove) {
-    this.displayed = -1;
     this.departmentService.removeDepartment(toRemove)
       .subscribe(() => this.reload())
   }
