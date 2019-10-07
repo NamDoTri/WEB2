@@ -1,2 +1,5 @@
-<h1>{{employee.first_name}} {{employee.last_name}}</h1>
-<p>Test line to see if the link works</p>
+<div *ngIf="employee">
+    <h1>{{employee.first_name}} {{employee.last_name}}</h1>
+    <span>#{{employee.id}}</span>
+    <p>DoB: {{employee.birth_date}}</p>
+</div>

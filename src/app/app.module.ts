@@ -18,7 +18,7 @@ import { EmployeeDetailComponent } from './employee-detail/employee-detail.compo
 const routing: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'department', component: DepartmentComponent },
-  { path: 'employee/employee-detail/:id', component: EmployeeDetailComponent},
+  { path: 'employee-detail/:id', component: EmployeeDetailComponent},
   { path: 'employee', component: EmployeeComponent },
   { path: 'addEmployee', component: EmployeeFormComponent},
   { path: 'task', component: TaskComponent },
