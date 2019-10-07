@@ -18,6 +18,7 @@ const routing: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'department', component: DepartmentComponent },
   { path: 'employee', component: EmployeeComponent },
+  { path: 'addEmployee', component: EmployeeFormComponent},
   { path: 'task', component: TaskComponent },
   { path: '',
     redirectTo: '/dashboard',

@@ -2,6 +2,8 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { EmployeeService } from 'src/app/services/employee.service';
 import { DepartmentService } from 'src/app/services/department.service';
+import { Location } from '@angular/common';
+
 @Component({
   selector: 'app-employee-form',
   templateUrl: './employee-form.component.html',
@@ -9,7 +11,8 @@ import { DepartmentService } from 'src/app/services/department.service';
 })
 export class EmployeeFormComponent implements OnInit {
   constructor(private employeeService: EmployeeService,
-              private departmentService: DepartmentService) { }
+              private departmentService: DepartmentService,
+              private location: Location) { }
   @Input() type: string;
   @Input() id: number;
   @Output() reload = new EventEmitter();
@@ -37,6 +40,6 @@ export class EmployeeFormComponent implements OnInit {
     } else {
       console.log('Bad input parameter');
     }
-    this.employeeForm.reset();
+    this.employeeService.addEmployee(this.employeeForm.value).subscribe( () => this.location.back() );
   }
 }
