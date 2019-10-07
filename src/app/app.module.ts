@@ -20,6 +20,7 @@ const routing: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'department-detail/:id', component: DepartmentDetailComponent},
   { path: 'department', component: DepartmentComponent },
+  { path: 'addDepartment', component: DepartmentFormComponent},
   { path: 'employee-detail/:id', component: EmployeeDetailComponent},
   { path: 'employee', component: EmployeeComponent },
   { path: 'addEmployee', component: EmployeeFormComponent},

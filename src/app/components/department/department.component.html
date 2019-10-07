@@ -1,30 +1,20 @@
 <div [hidden]="modifying">
   <h2>This is the list of departments</h2>
+  <a [routerLink]="['/addDepartment']">Add new department</a>
   <table>
     <tr>
       <th>ID</th>
       <th>Name</th>
       <th>Employees</th>
     </tr>
-    <tr *ngFor="let dep of department" (click)='displayed=dep.id; getDepartmentInfo(dep.id)'>
+    <tr *ngFor="let dep of department" >
       <td>{{ dep.id }}</td>
       <td><a [routerLink]="['/department-detail', dep.id]">{{ dep.name }}</a></td>
       <td>{{ dep.employees }}</td>
-      <span *ngIf="displayed === dep.id">
-        <td>
-          <button (click)="modifying=true">Update</button>
-          <button (click)="removeDepartment(displayed)">Delete</button>
-        </td>
-      </span>
+      <td>
+        <button (click)="modifying=true">Update</button>
+        <button (click)="removeDepartment(displayed)">Delete</button>
+      </td>
     </tr>
   </table>
-</div>
-
-<div [hidden]="modifying">
-  <h4>Add new department:</h4>
-  <app-department-form (reload)="reload()" type='CREATE'></app-department-form>
-</div>
-
-<div [hidden]="!modifying">
-  <app-department-form (reload)="reload()" type='MODIFY' id='{{displayed}}'></app-department-form>
 </div>
