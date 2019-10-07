@@ -18,6 +18,7 @@ import { DepartmentDetailComponent } from './department-detail/department-detail
 
 const routing: Routes = [
   { path: 'dashboard', component: DashboardComponent },
+  { path: 'department-detail/:id', component: DepartmentDetailComponent},
   { path: 'department', component: DepartmentComponent },
   { path: 'employee-detail/:id', component: EmployeeDetailComponent},
   { path: 'employee', component: EmployeeComponent },

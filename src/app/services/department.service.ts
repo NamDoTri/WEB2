@@ -18,7 +18,7 @@ export class DepartmentService {
     return this.httpClient.get(`${baseURL}department`);
   }
 
-  getDepartmentInfo(id){
+  getDepartmentById(id){
     return this.httpClient.get(`${baseURL}department?id=${id}`)
   }
 

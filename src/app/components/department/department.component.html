@@ -8,7 +8,7 @@
     </tr>
     <tr *ngFor="let dep of department" (click)='displayed=dep.id; getDepartmentInfo(dep.id)'>
       <td>{{ dep.id }}</td>
-      <td>{{ dep.name }}</td>
+      <td><a [routerLink]="['/department-detail', dep.id]">{{ dep.name }}</a></td>
       <td>{{ dep.employees }}</td>
       <span *ngIf="displayed === dep.id">
         <td>
