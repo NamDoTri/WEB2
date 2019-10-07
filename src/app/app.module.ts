@@ -14,6 +14,7 @@ import { TaskFormComponent } from './components/task/task-form/task-form.compone
 import { EmployeeFormComponent } from './components/employee/employee-form/employee-form.component';
 import { DepartmentFormComponent } from './components/department/department-form/department-form.component';
 import { EmployeeDetailComponent } from './employee-detail/employee-detail.component';
+import { DepartmentDetailComponent } from './department-detail/department-detail.component';
 
 const routing: Routes = [
   { path: 'dashboard', component: DashboardComponent },
@@ -39,7 +40,8 @@ const routing: Routes = [
     TaskFormComponent,
     EmployeeFormComponent,
     DepartmentFormComponent,
-    EmployeeDetailComponent
+    EmployeeDetailComponent,
+    DepartmentDetailComponent
   ],
   imports: [
     BrowserModule,
