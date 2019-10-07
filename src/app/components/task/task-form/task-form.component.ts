@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { Location } from "@angular/common";
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { TaskService } from 'src/app/services/task.service';
 import { Task } from 'src/app/models/task.model';
@@ -9,7 +10,8 @@ import { Task } from 'src/app/models/task.model';
   styleUrls: ['./task-form.component.css']
 })
 export class TaskFormComponent implements OnInit {
-  constructor(private taskService: TaskService) { }
+  constructor(private taskService: TaskService,
+              private location: Location) { }
   ngOnInit() { }
   @Input() type: string;
   @Input() id: number;
@@ -32,5 +34,8 @@ export class TaskFormComponent implements OnInit {
       console.log('Bad input parameter');
     }
     this.taskForm.reset();
+  }
+  goBack(){
+    this.location.back()
   }
 }

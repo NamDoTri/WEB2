@@ -42,4 +42,7 @@ export class EmployeeFormComponent implements OnInit {
     }
     this.employeeService.addEmployee(this.employeeForm.value).subscribe( () => this.location.back() );
   }
+  goBack(){
+    this.location.back()
+  }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Location } from "@angular/common";
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { DepartmentService } from 'src/app/services/department.service';
 
@@ -8,7 +9,8 @@ import { DepartmentService } from 'src/app/services/department.service';
   styleUrls: ['./department-form.component.css']
 })
 export class DepartmentFormComponent implements OnInit {
-  constructor(private departmentService: DepartmentService) { }
+  constructor(private departmentService: DepartmentService,
+              private location: Location) { }
   ngOnInit() { }
   @Input() type: string;
   @Input() id: number;
@@ -30,5 +32,8 @@ export class DepartmentFormComponent implements OnInit {
       console.log('Bad input parameter');
     }
     this.departmentForm.reset();
+  }
+  goBack(){
+    this.location.back()
   }
 }
