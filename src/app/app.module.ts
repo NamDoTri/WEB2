@@ -21,6 +21,7 @@ const routing: Routes = [
   { path: 'department-detail/:id', component: DepartmentDetailComponent},
   { path: 'department', component: DepartmentComponent },
   { path: 'addDepartment', component: DepartmentFormComponent},
+  { path: 'updateDepartment/:id', component: DepartmentFormComponent},
   { path: 'employee-detail/:id', component: EmployeeDetailComponent},
   { path: 'employee', component: EmployeeComponent },
   { path: 'addEmployee', component: EmployeeFormComponent},
