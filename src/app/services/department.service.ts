@@ -18,6 +18,10 @@ export class DepartmentService {
     return this.httpClient.get(`${baseURL}department`);
   }
 
+  getDepartmentById(id){
+    return this.httpClient.get(`${baseURL}department?id=${id}`)
+  }
+
   addDepartment(department: Department): any {
     return this.httpClient.post(`${baseURL}department`, { 
       name: department.name, 

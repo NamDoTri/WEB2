@@ -35,6 +35,10 @@ export class TaskService {
   }
 
   updateTask(index: number, task: Task) {
-    return this.httpClient.put(`${baseURL}task?id=${index}`, { task });
+    return this.httpClient.put(`${baseURL}task?id=${index}`, { 
+      department_id: task.department_id,
+      name: task.name,
+      due_date: task.due_date,
+    });
   }
 }

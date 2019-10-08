@@ -1,6 +1,9 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Location } from "@angular/common";
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { ActivatedRoute } from "@angular/router";
 import { DepartmentService } from 'src/app/services/department.service';
+import { Department } from "src/app/models/department.model";
 
 @Component({
   selector: 'app-department-form',
@@ -8,27 +11,44 @@ import { DepartmentService } from 'src/app/services/department.service';
   styleUrls: ['./department-form.component.css']
 })
 export class DepartmentFormComponent implements OnInit {
-  constructor(private departmentService: DepartmentService) { }
-  ngOnInit() { }
-  @Input() type: string;
-  @Input() id: number;
-  @Output() reload = new EventEmitter();
+  id: number;
+  constructor(private departmentService: DepartmentService,
+              private location: Location,
+              private route: ActivatedRoute) { }
 
   departmentForm = new FormGroup({
     name: new FormControl('', [ Validators.minLength(1), Validators.required]  ),
     building: new FormControl('', [ Validators.minLength(1), Validators.required]  ),
   });
 
-  onSubmit(){
-    if (this.type === 'CREATE') {
-      this.departmentService.addDepartment(this.departmentForm.value)
-        .subscribe(() => this.reload.emit());
-    } else if (this.type === 'MODIFY') {
-      this.departmentService.updateDepartment(this.id, this.departmentForm.value)
-        .subscribe(() => this.reload.emit());
-    } else {
-      console.log('Bad input parameter');
+  ngOnInit() {
+    this.id = +this.route.snapshot.paramMap.get("id");
+
+    //if updating, fill the forms with existing values
+    if(this.id){
+      this.departmentService.getDepartmentById(this.id)
+        .subscribe( (res: Department) => {
+          this.departmentForm.setValue(
+            {
+              name: res.name,
+              building: res.building
+            }
+          )
+        });
     }
-    this.departmentForm.reset();
+  }
+
+  onSubmit(){
+    if (this.id) {
+      this.departmentService.updateDepartment(this.id, this.departmentForm.value)
+        .subscribe(() => this.goBack());
+    }
+    else{
+      this.departmentService.addDepartment(this.departmentForm.value)
+        .subscribe(() => this.goBack());
+    } 
+  }
+  goBack(){
+    this.location.back()
   }
 }
