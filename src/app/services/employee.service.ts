@@ -39,4 +39,7 @@ export class EmployeeService {
        department_id: employee.department_id
       });
   }
+  getEmployeeById(id: number){
+    return this.httpClient.get(`${baseURL}employee?id=${id}`)
+  }
 }

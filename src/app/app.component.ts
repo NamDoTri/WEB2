@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { faHome } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faPlus } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-root',
@@ -9,4 +9,5 @@ import { faHome } from '@fortawesome/free-solid-svg-icons';
 export class AppComponent {
   title = 'dashboard';
   faHome = faHome;
+  faPlus = faPlus;
 }
