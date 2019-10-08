@@ -1,0 +1,31 @@
+<div>
+  <button (click)="goBack()" class='btn btn-secondary'>Back</button>
+  <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="first_name">First name</label>
+      <input type="text" class="form-control" formControlName="first_name" placeholder="Employee first name">
+    </div>
+    <div class="form-group">
+      <label for="last_name">Last name</label>
+      <input type="text" class="form-control" formControlName="last_name" placeholder="Employee last name">
+    </div>
+    <div class="form-group">
+        <label for="birth_date">Date of birth</label>
+        <input type="date" class="form-control" formControlName="birth_date" placeholder="Employee date of birth">
+      </div>
+    <!-- <label>
+    Age:
+    <input type="number" formControlName="age">
+  </label> -->
+
+  <div class="form-group">
+      <label for="department_id">Department</label>
+      <select class="form-control" formControlName="department_id">
+        <option value="Choose a department" disabled>Choose a department</option>
+        <option *ngFor="let dpt of departments" value="{{dpt.id}}">{{dpt.name}}</option>
+      </select>
+    </div>
+    <button class='btn btn-primary' type="submit" [disabled]="!employeeForm.valid">Save</button>
+  </form>
+  <!-- <div *ngIf="age.errors.min">Employee must be 18 years old or above</div> -->
+</div>

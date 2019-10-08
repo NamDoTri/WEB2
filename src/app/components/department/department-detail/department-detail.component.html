@@ -1,0 +1,12 @@
+<button (click)="goBack()" class='btn btn-secondary'>Back</button>
+<div *ngIf="department">
+    <h1>{{department.name}}</h1>
+    <p>Building: {{department.building}}</p>
+    <p>Number of employees: {{department.employees.length}}</p>
+    <div>
+        <h4>List of employees:</h4>
+        <ul *ngFor="let employee of department.employees">
+            <li><a [routerLink]="['/employee-detail', employee]">{{employee}}</a></li>
+        </ul>
+    </div>
+</div>

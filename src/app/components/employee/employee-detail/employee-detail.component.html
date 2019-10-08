@@ -1,0 +1,6 @@
+<button (click)="goBack()" class='btn btn-secondary'>Back</button>
+<div *ngIf="employee">
+    <h1>{{employee.first_name}} {{employee.last_name}}</h1>
+    <span>#{{employee.id}}</span>
+    <p>DoB: {{employee.birth_date | date: "dd-MM-yyyy"}}</p>
+</div>
