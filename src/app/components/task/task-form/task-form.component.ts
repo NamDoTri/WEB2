@@ -24,8 +24,6 @@ export class TaskFormComponent implements OnInit {
   departments: Department;
   employees: Employee;
 
-  today : Date = new Date();
-
   ngOnInit() {
     this.departmentService.getDepartment().subscribe( res => this.departments = res )
     this.employeeService.getEmployee().subscribe( res => this.employees = res )
@@ -46,13 +44,18 @@ export class TaskFormComponent implements OnInit {
     employees: new FormControl(null, [ Validators.minLength(1), Validators.required])
   });
 
-  compareDates() {
-    console.log('cc');
-    if (this.taskForm.value.due_date < this.today) {
-      console.log('oui');
-      
+  /*compareDates(control: FormControl) : Validators{
+    const today : Date = new Date();
+    if (this.taskForm.value.due_date < today) {
+      console.log('err ?')
+      return {
+        error: 'err'
+      }
+      //this.taskForm.controls['employees'].setErrors({'incorrect': true});
     }
-  }
+    console.log('no err')
+    return null;
+  }*/
 
   onSubmit() {
     console.log(this.taskForm.value.employees)
