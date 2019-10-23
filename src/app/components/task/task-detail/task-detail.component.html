@@ -1,36 +1,8 @@
-<!--<button (click)="goBack()">Back</button>
-<div *ngIf="task">
-    <h1>{{task.first_name}} {{task.last_name}}</h1>
-    <span>#{{task.id}}</span>
-    <p>DoB: {{task.birth_date}}</p>
-</div>
-<p class="mb-1">Due date: {{ elem.due_date | date :"dd/MM/yyyy" }}</p>
-<p class="mb-1">Department: {{ elem.department_id }}</p>
-<div class="row justify-content-end">
-    <button class='m-1 btn btn-primary {{ modifying ? "active" : "" }}'
-        (click)="modifying=!modifying; $event.stopPropagation()">Update</button>
-    <button class='m-1 btn btn-danger' (click)="removeTask(displayed)">Delete</button>
-</div>
-<div [hidden]="!modifying">
-    <app-task-form (reload)="reload()" type='MODIFY' id='{{displayed}}' (click)="$event.stopPropagation()">
-    </app-task-form>
-</div>
-<a (click)='displayed=-1; modifying=false; creating=!creating'
-class="list-group-item list-group-item-action {{ creating ? 'list-group-item-primary' : 'list-group-item-light' }}">
-<fa-icon [hidden]='creating' [icon]='faPlus'></fa-icon>
-<div *ngIf="creating">
-  <span class='d-flex justify-content-between'>
-    New task
-    <button class='btn btn-light' (click)='creating=false; $event.stopPropagation()'>
-      <fa-icon [icon]='faClose'></fa-icon>
+<div class="row my-3">
+    <button (click)="goBack()" class='btn btn-secondary'>
+        Go back
     </button>
-  </span>
-  <div class="col">
-    <app-task-form (reload)="reload()" type='CREATE' (click)="$event.stopPropagation()"></app-task-form>
-  </div>
 </div>
-</a>-->
-<button (click)="goBack()" class='btn btn-secondary'>Back</button>
 <div *ngIf="task">
     <h1>{{task.name}} </h1>
     <span>#{{task.id}}</span>

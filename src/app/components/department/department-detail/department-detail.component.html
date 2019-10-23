@@ -1,4 +1,8 @@
-<button (click)="goBack()" class='btn btn-secondary'>Back</button>
+<div class="row my-3">
+    <button (click)="goBack()" class='btn btn-secondary'>
+        Go back
+    </button>
+</div>
 <div *ngIf="department">
     <h1>{{department.name}}</h1>
     <p>Building: {{department.building}}</p>

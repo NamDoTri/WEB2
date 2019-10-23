@@ -26,7 +26,8 @@ export class TaskService {
     return this.httpClient.post(`${baseURL}task`, { 
       department_id: task.department_id,
       name: task.name,
-      due_date: task.due_date
+      due_date: task.due_date,
+      employees: task.employees
     });
   }
 
@@ -39,6 +40,7 @@ export class TaskService {
       department_id: task.department_id,
       name: task.name,
       due_date: task.due_date,
+      employees: task.employees
     });
   }
 }

@@ -1,16 +1,35 @@
-<div>
-    <h1 class='h1'><a [routerLink]="['/department']">Departments</a></h1>
-    Number of departments: {{departments.length}}
+<div class='p-4 row'>
+  <div class='mb-4 col-6'>
+    <h1 class='h1 p-1'><a [routerLink]="['/task']">Tasks</a></h1>
+    <div class="list-group">
+        <a *ngFor="let elem of tasks" [routerLink]="['/task-detail', elem.id]"
+          class="list-group-item list-group-item-action list-group-item-light">
+          <span class='d-flex justify-content-between'>
+            {{ elem.name }}
+          </span>
+        </a>
+      </div>
 </div>
-
-<div>
-    <h1 class='h1'><a [routerLink]="['/employee']">Employees</a></h1>
-    Number of employees: {{employees.length}}
+  <div class='mb-4 col-6'>
+    <h1 class='h1 p-1'><a [routerLink]="['/department']">Departments</a></h1>
+    <div class="list-group">
+      <a *ngFor="let elem of departments" [routerLink]="['/department-detail', elem.id]"
+        class="list-group-item list-group-item-action list-group-item-light">
+        <span class='d-flex justify-content-between'>
+          {{ elem.name }}
+        </span>
+      </a>
+    </div>
 </div>
-
-<div>
-    <h1 class='h1'><a [routerLink]="['/task']">Tasks</a></h1>
-    Number of tasks: {{tasks.length}}
+<div  class='mb-4 col-6'>
+  <h1 class='h1 p-1'><a [routerLink]="['/employee']">Employees</a></h1>
+  <div class="list-group">
+      <a *ngFor="let elem of employees" [routerLink]="['/employee-detail', elem.id]"
+        class="list-group-item list-group-item-action list-group-item-light">
+        <span class='d-flex justify-content-between'>
+          {{ elem.first_name }} {{ elem.last_name }}
+        </span>
+      </a>
+    </div>
 </div>
-
-<!--Calendar here-->
+</div>

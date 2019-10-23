@@ -23,6 +23,7 @@ export class TaskComponent implements OnInit {
   reload() {
     this.taskService.getTask()
       .subscribe((res: Task[]) => this.task = res);
+    console.log(this.task);
   }
   
   removeTask(toRemove) {
